@@ -6,7 +6,8 @@
   "author": "J Nick Baughan",
   "license": "MIT",
   "scripts": {
-    "build-client": "webpack --config webpack.config.js --watch"
+    "build-client": "webpack --config webpack.config.js --watch",
+    "start-dev": "npx styleguidist server"
   },
   "devDependencies": {
     "@babel/cli": "^7.10.3",

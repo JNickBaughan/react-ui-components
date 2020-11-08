@@ -68,22 +68,26 @@ export default ({ value, onChange}) => {
 
 	const onKeyInput = e => {
 		const input = e.key;
-		setNewChar(input)
-		setText(`${text}${input}`)
+		if(input === 'Backspace'){
+			setNewChar("")
+			setText(`${text.length === 1 ? "" : text.slice(0, -1)}`)
+		}else{
+			setNewChar(input)
+			setText(`${text}${input}`)
+		}
 	}
 
 	return (
 				<>
 				  <HiddenInput
 				  	value={text}
-					onKeyPress={onKeyInput}
+					onKeyUp={onKeyInput}
 					onBlur={onBlur}
 					ref={textInput}
 					autoFocus={hasFocus}
 				/>
 				  <MockedInput
 					onClick={onFocus}
-					onKeyPress={() => { alert() }} 
 					hasFocus={hasFocus}  
 					ref={mockInput}>
 						{newChar !== "" && hasFocus ? text.slice(0, -1) : text}
