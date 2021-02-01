@@ -1,6 +1,10 @@
 Animated Input:
 
 ```jsx
-const [text, setText] = React.useState("Click and start typing");
-<Input value={text} onChange={(value) => setText(value)} />;
+const [text, setText] = React.useState("");
+<Input
+  value={text}
+  placeholder={"Click and start typing"}
+  onChange={(value) => setText(value)}
+/>;
 ```
